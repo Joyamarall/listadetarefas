@@ -61,6 +61,18 @@ body {
   span {
     margin-right: 10px;
   }
+
+  span {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+    display: inline-block;
+  }
+  
+  span.completed {
+    text-decoration: line-through;
+    color: #777;
+  }
   
   button {
     background-color: #d9534f;

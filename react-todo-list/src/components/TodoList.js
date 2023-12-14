@@ -1,3 +1,4 @@
+// TodoList.js
 import React, { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
 import AddTodoForm from './AddTodoForm';
@@ -19,12 +20,24 @@ const TodoList = () => {
     setTasks(updatedTasks);
   };
 
+  const toggleCompletion = (taskId) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+  };
+
   return (
     <div>
       <h1>Lista de Tarefas</h1>
       <AddTodoForm addTask={addTask} />
       {tasks.map((task) => (
-        <TodoItem key={task.id} task={task} removeTask={removeTask} />
+        <TodoItem
+          key={task.id}
+          task={task}
+          removeTask={removeTask}
+          toggleCompletion={toggleCompletion}
+        />
       ))}
     </div>
   );
